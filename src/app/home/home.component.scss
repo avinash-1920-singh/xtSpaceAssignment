@@ -1,0 +1,41 @@
+:host{
+    .wrapper-box{
+        display: flex;
+        flex-direction: column;
+    }
+    .welcome-text{
+        font-size: 2rem;
+        font-weight: bold;
+    }
+    .container-section{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding-top: 1rem;
+    }
+    .filter-section{
+        flex: 1.5;
+        height: 300px;
+        background-color:#ffffff;
+        margin-right: 1rem;
+        
+    }
+    .result-section{
+        flex: 8.5;
+        height: 300px;
+        background-color: green;
+    }
+    @media only screen and (max-width: 700px){
+        .container-section{
+            flex-direction: column;
+        }
+        .filter-section{
+            margin-right: 0px;
+            flex: 1;
+            width: 100%;
+        }
+        .result-section{
+            flex: 1;
+        }
+    }
+}

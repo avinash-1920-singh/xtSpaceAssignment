@@ -1,17 +1,22 @@
 <div>
-    <div style="font-size: 1.5rem; font-weight: bold; padding-left: 1rem;padding-top: 0.5rem;">
+    <div style="font-size: 1.2rem; font-weight: bold; padding-left: 0.5rem;padding-top: 0.5rem;">
         {{'Filters'}}
     </div>
-    <div class="filter-area">
-        <div style="font-size: 1.7rem; font-weight: lighter;padding-top: 0.5rem;padding-bottom: 0.2rem;">
-            {{'Launch Year'}}
-        </div>
-        <div class="horizontal-line">
-        </div>
-        <div class="filter-data">
-            
-
+    <div class="filter-area" *ngFor="let value of staticFilter">
+            <div style="font-size: 1.1rem; font-weight: lighter;padding-top: 0.5rem;padding-bottom: 0.2rem;">
+                {{value.filterText}}
             </div>
-
-        </div>
+            <div class="horizontal-line">
+            </div>
+            <div class="filter-data">
+                <ng-container *ngFor="let subfilter of value.data">
+                    <div class="filter-icons">
+                        <span>
+                            {{subfilter.value}}
+                        </span>
+                    </div>
+                </ng-container>
+            </div>
+       
     </div>
+</div>

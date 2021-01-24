@@ -6,19 +6,24 @@
 }
 .horizontal-line{
     border: 0.13rem solid #eff2fb;
-    width: 12rem;
+    width: 85%;
 }
 .filter-data{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    background-color: greenyellow;
-    width: 300px;
-    border: 2px solid red;
+    width: 80%;
+    margin-top: 0.5rem;
+    padding: 0.5rem;
 }
 .filter-icons{
-    width: 50px;
-    height: 50px;
-    background-color: green;
+    width: 3.5rem;
+    height: 1.5rem;
+    background-color:#adff2f;
+    margin-bottom:1rem;
+    border-radius: 0.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

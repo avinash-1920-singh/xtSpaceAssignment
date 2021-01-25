@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { CardComponent } from './card/card.component';
 import { FilterComponent } from './filter/filter.component';
 import { HomeComponent } from './home/home.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HomeService } from './home/home.service';
 
 @NgModule({
   declarations: [
@@ -15,10 +17,11 @@ import { HomeComponent } from './home/home.component';
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    HttpClientModule,
     AppRoutingModule,
     CommonModule
   ],
-  providers: [],
+  providers: [HomeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

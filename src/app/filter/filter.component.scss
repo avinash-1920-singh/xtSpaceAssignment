@@ -26,4 +26,26 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+}
+@media only screen and (min-width: 1440px){
+    .filter-data{
+        width: 75%;
+    }
+}
+@media only screen and (min-width:250px) and (max-width: 350px){
+    .filter-data{
+        width: 60%;
+    }
+    .horizontal-line{
+        width: 50%;
+    }
+}
+@media only screen and (min-width:400px) and (max-width: 450px){
+    .filter-data{
+        width: 40%;
+    }
+    .horizontal-line{
+        width: 50%;
+    }
 }

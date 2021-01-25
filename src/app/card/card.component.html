@@ -1,9 +1,54 @@
+<div class="wrapper-card">
+    <div class="card-layout" style="padding-bottom:0.5rem;">
+        <div>
+            <img src="../../assets/test.jpg" class="responsive" alt="Rocket Image">
+        </div>
+        <div>
 
-<div class="card-layout">
-<div>
-    <img src="../../assets/test.jpg" class="responsive" alt="Rocket Image">
-</div>  
-<div>
+        </div>
+    </div>
+    <div class="data-section">
+        <div class="data-desing" style="padding-bottom:0.5rem;">
+            <span>
+                {{cardData['missionName']}}
+            </span>
+        </div>
+        <!-- <div *ngIf="cardData['missionId'] && cardData['missionId'].length>0" style="padding-bottom:0.5rem;">
+            <div>
+                <span style="font-weight: bold;">
+                    {{'Mission Ids:'}}
+                </span>
+            </div>
+            <div style="display: list-item; margin-left: 20px;" *ngFor="let data of cardData['missionId']">
+                <span>
+                    {{data}}
+                </span>
+            </div>
+        </div> -->
+        <div style="padding-bottom:0.5rem;">
+            <span style="font-weight: bold;">
+                {{'Launch Year:'}}
+            </span>
+            <span class="data-desing">
+                {{cardData['launchYear']}}
+            </span>
+        </div>
+        <div style="padding-bottom:0.5rem;">
+            <span style="font-weight: bold;">
+                {{'Successful Launch:'}}
+            </span>
+            <span class="data-desing">
+                {{cardData['launchSuccess']}}
+            </span>
+        </div>
+        <div style="padding-bottom:0.5rem;">
+            <span style="font-weight: bold;">
+                {{'Successful Landing:'}}
+            </span>
+            <span class="data-desing">
+                {{cardData['succesfulLanding']}}
+            </span>
+        </div>
+    </div>
 
-</div>
 </div>

@@ -9,13 +9,13 @@
             <div class="horizontal-line">
             </div>
             <div class="filter-data">
-                <ng-container *ngFor="let subfilter of value.data">
-                    <div class="filter-icons">
+                <div *ngFor="let subfilter of value.data;let i=index" >
+                    <div #filters class="filter-icons" (click)="applyFilter(subfilter,i)">
                         <span>
-                            {{subfilter.value}}
+                            {{subfilter.id}}
                         </span>
                     </div>
-                </ng-container>
+                </div>
             </div>
        
     </div>

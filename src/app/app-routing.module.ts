@@ -5,7 +5,7 @@ import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
-    path:'home',
+    path:'',
     component:HomeComponent,
     
   },
@@ -13,11 +13,7 @@ const routes: Routes = [
     path:'filter',
     component:HomeComponent
   },
-  {
-    path:'',
-    redirectTo:'home',
-    pathMatch:'full'
-  },{
+ {
     path:'home',
     component:HomeComponent,
   }

@@ -1,5 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HomeService } from './home.service';
 
@@ -9,14 +10,19 @@ import { HomeService } from './home.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  title = 'xtAssignmentApp';
+  title = 'Home Page';
   cardData = [];
   selectedFilterName = '';
   selectedFilterValue = '';
-  constructor(private homeService: HomeService, private router: Router, private activatedRoute: ActivatedRoute) {
+  constructor(private homeService: HomeService, private router: Router, private activatedRoute: ActivatedRoute,private titleService: Title,
+    private metaTagService: Meta) {
 
   }
   ngOnInit() {
+    this.titleService.setTitle(this.title);
+    this.metaTagService.updateTag(
+      { name: 'description', content: 'Space Launches' }
+    );
     this.activatedRoute.params.subscribe((params) => {
       if (params['filtername'] && params['value']) {
         this.homeService.getFilteredData().subscribe(res => {

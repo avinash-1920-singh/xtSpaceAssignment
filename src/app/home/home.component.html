@@ -15,7 +15,7 @@
             </ng-container>
                 
             <ng-template #loaderTemplate>
-                <div style="width:500px;display:flex; align-items:center;justify-content:center;margin: auto;">
+                <div *ngIf="loading" style="width:500px;display:flex; align-items:center;justify-content:center;margin: auto;">
                  <div class="cover-spin">
                  </div>
                 </div>

@@ -10,6 +10,7 @@ export class HomeService {
     yearactiveTab=''
     launcYearActive=''
     landingActiveTab=''
+    loading=false
     constructor(private http: HttpClient) { }
     public getRecordsWithoutFilter() {
         return this.http.get('https://api.spacexdata.com/v3/launches?limit=100')

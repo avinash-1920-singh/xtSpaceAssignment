@@ -15,11 +15,13 @@ export class HomeComponent implements OnInit {
   selectedFilterName = '';
   selectedFilterValue = '';
   activeTab=''
+  loading=false
   constructor(private homeService: HomeService, private router: Router, private activatedRoute: ActivatedRoute,private titleService: Title,
     private metaTagService: Meta) {
 
   }
   ngOnInit() {
+    this.loading=true;
     this.titleService.setTitle(this.title);
     this.metaTagService.updateTag(
       { name: 'description', content: 'Space Launches' }
@@ -39,6 +41,7 @@ export class HomeComponent implements OnInit {
           }
           console.log(this.activeTab)
           this.generateCardData(res);
+          this.loading=false;
         });
       }
       else {
@@ -46,7 +49,8 @@ export class HomeComponent implements OnInit {
         this.homeService.launcYearActive='';
         this.homeService.landingActiveTab='';
         this.homeService.getRecordsWithoutFilter().subscribe((res) => {
-          this.generateCardData(res)
+          this.generateCardData(res);
+          this.loading=false;
         })
       }
     })

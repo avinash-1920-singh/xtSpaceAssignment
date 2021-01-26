@@ -8,14 +8,14 @@
         </div>
 
         <div class="result-section">
-            <ng-container *ngIf="cardData && cardData.length>0;else loaderTemplate">
+            <ng-container *ngIf="cardData && cardData.length<0;else loaderTemplate">
                 <div *ngFor="let data of cardData" class="card-display">
                     <app-card [cardData]="data"></app-card>
                 </div>
             </ng-container>
                 
             <ng-template #loaderTemplate>
-                <div style="width:500px;display:flex; align-items:center;justify-content:center">
+                <div style="width:500px;display:flex; align-items:center;justify-content:center;margin: auto;">
                  <div class="cover-spin">
                  </div>
                 </div>

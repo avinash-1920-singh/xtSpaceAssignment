@@ -8,7 +8,7 @@
         </div>
 
         <div class="result-section">
-            <ng-container *ngIf="cardData && cardData.length<0;else loaderTemplate">
+            <ng-container *ngIf="cardData && cardData.length>0;else loaderTemplate">
                 <div *ngFor="let data of cardData" class="card-display">
                     <app-card [cardData]="data"></app-card>
                 </div>

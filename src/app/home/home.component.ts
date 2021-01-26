@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
   cardData = [];
   selectedFilterName = '';
   selectedFilterValue = '';
+  activeTab=''
   constructor(private homeService: HomeService, private router: Router, private activatedRoute: ActivatedRoute,private titleService: Title,
     private metaTagService: Meta) {
 
@@ -26,10 +27,24 @@ export class HomeComponent implements OnInit {
     this.activatedRoute.params.subscribe((params) => {
       if (params['filtername'] && params['value']) {
         this.homeService.getFilteredData().subscribe(res => {
+          this.activeTab=params['value'];
+          if(params['filtername']==='launch_year'){
+            this.homeService.yearactiveTab=params['value'];
+          }
+          else if(params['filtername']==='launch_success'){
+            this.homeService.launcYearActive=params['value'];
+          }
+          else if(params['filtername']==='land_success'){
+            this.homeService.landingActiveTab=params['value'];
+          }
+          console.log(this.activeTab)
           this.generateCardData(res);
         });
       }
       else {
+        this.homeService.yearactiveTab='';
+        this.homeService.launcYearActive='';
+        this.homeService.landingActiveTab='';
         this.homeService.getRecordsWithoutFilter().subscribe((res) => {
           this.generateCardData(res)
         })

@@ -7,6 +7,9 @@ export class HomeService {
     landingFilterApplied=false;
     criteria=[]
     cardData=[];
+    yearactiveTab=''
+    launcYearActive=''
+    landingActiveTab=''
     constructor(private http: HttpClient) { }
     public getRecordsWithoutFilter() {
         return this.http.get('https://api.spacexdata.com/v3/launches?limit=100')

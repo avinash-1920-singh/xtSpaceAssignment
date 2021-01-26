@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, Output, QueryList, Renderer2, ViewChildren } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, Output, QueryList, Renderer2, ViewChildren } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import { HomeService } from '../home/home.service';
 
@@ -8,11 +8,83 @@ import { HomeService } from '../home/home.service';
   styleUrls: ['./filter.component.scss']
 })
 export class FilterComponent implements OnInit{
-  constructor(private homeService:HomeService,private renderer:Renderer2){
+  constructor(public homeService:HomeService,private renderer:Renderer2){
 
   }
+  @Input() activeTab
   @Output() filterApplied=new EventEmitter();
   @ViewChildren('filters') filters:QueryList<ElementRef>
+  dateFilter=[
+    {
+      filterName:'launch_year',
+      value:'2012',
+      id:2012,
+    },
+    {
+      filterName:'launch_year',
+      value:'2013',
+      id:2013
+    },
+    {
+      filterName:'launch_year',
+      value:'2014',
+      id:2014
+    },
+    {
+      filterName:'launch_year',
+      value:'2015',
+      id:2015
+    },
+    {
+      filterName:'launch_year',
+      value:'2016',
+      id:2016
+    },
+    {
+      filterName:'launch_year',
+      value:'2017',
+      id:2017
+    },
+    {
+      filterName:'launch_year',
+      value:'2018',
+      id:2018
+    },
+    {
+      filterName:'launch_year',
+      value:'2019',
+      id:2019
+    },
+    {
+      filterName:'launch_year',
+      value:'2020',
+      id:2020
+    } 
+  ]
+  launchFilter=[
+    {
+      filterName:'launch_success',
+      value:'true',
+      id:'True'
+    },
+    {
+      filterName:'launch_success',
+      value:'false',
+      id:'False'
+    }
+  ]
+  landFilter=[
+    {
+      filterName:'land_success',
+      value:'true',
+      id:'True'
+    },
+    {
+      filterName:'land_success',
+      value:'false',
+      id:'False'
+    }
+  ]
   staticFilter=[
     {
       'filterText':'Launch Year',
@@ -20,7 +92,7 @@ export class FilterComponent implements OnInit{
         {
           filterName:'launch_year',
           value:'2012',
-          id:2012
+          id:2012,
         },
         {
           filterName:'launch_year',
@@ -96,12 +168,22 @@ export class FilterComponent implements OnInit{
     }
   ]
 ngOnInit(){
-  
+  console.log(this.activeTab)
 }
   applyFilter(filter,index?){
+    filter['active']=true;
    this.homeService.criteria.forEach((criteria)=>{
      if(criteria.filterName===filter.filterName && criteria.value===filter.value.toString() && criteria.id===filter.id){
        filter['filterDeselection']=true;
+       if(filter.filterName==='launch_year'){
+         this.homeService.yearactiveTab=''
+       }
+       else if(filter.filterName==='launch_success'){
+         this.homeService.launcYearActive=''
+       }
+       else if(filter.filterName==='land_success'){
+this.homeService.landingActiveTab=''
+       }
        console.log(filter)
      }
    })
@@ -109,12 +191,10 @@ ngOnInit(){
   //   this.renderer.setStyle(this.filters.toArray()[index].nativeElement,'background-color','#adff2f');
   //  }
   //  else{
-  //   //  this.filters.toArray().forEach((el)=>{
-  //   //    if(el.nativeElement.innerText.trim()===filter.id){
-  //   //    this.el
-  //   //    }
-  //   //  })
-  //   this.renderer.setStyle(this.filters.toArray()[index].nativeElement,'background-color','#32cd32');
+  //   setTimeout(()=>{
+  //     this.renderer.setStyle(this.filters.toArray()[index].nativeElement,'background-color','#32cd32');
+  //   })
+    
   //  }
     this.filterApplied.emit(filter);
   }

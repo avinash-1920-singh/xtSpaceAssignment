@@ -2,15 +2,43 @@
     <div style="font-size: 1.2rem; font-weight: bold; padding-left: 0.5rem;padding-top: 0.5rem;">
         {{'Filters'}}
     </div>
-    <div class="filter-area" *ngFor="let value of staticFilter">
+    <div class="filter-area">
             <div style="font-size: 1.1rem; font-weight: lighter;padding-top: 0.5rem;padding-bottom: 0.2rem;">
-                {{value.filterText}}
+                {{'Launch Year'}}
             </div>
             <div class="horizontal-line">
             </div>
             <div class="filter-data">
-                <div *ngFor="let subfilter of value.data;let i=index" >
-                    <div #filters class="filter-icons" (click)="applyFilter(subfilter,i)">
+                <div *ngFor="let subfilter of dateFilter;let i=index" >
+                    <div #filters class="filter-icons" (click)="applyFilter(subfilter,i)" [ngClass]="{'filterApplied':subfilter.value===homeService.yearactiveTab}">
+                        <span>
+                            {{subfilter.id}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div style="font-size: 1.1rem; font-weight: lighter;padding-top: 0.5rem;padding-bottom: 0.2rem;">
+                {{'Successful Launch'}}
+            </div>
+            <div class="horizontal-line">
+            </div>
+            <div class="filter-data">
+                <div *ngFor="let subfilter of launchFilter;let i=index" >
+                    <div #filters class="filter-icons" (click)="applyFilter(subfilter,i)" [ngClass]="{'filterApplied':subfilter.value===homeService.launcYearActive}">
+                        <span>
+                            {{subfilter.id}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div style="font-size: 1.1rem; font-weight: lighter;padding-top: 0.5rem;padding-bottom: 0.2rem;">
+                {{'Successful Landing'}}
+            </div>
+            <div class="horizontal-line">
+            </div>
+            <div class="filter-data">
+                <div *ngFor="let subfilter of landFilter;let i=index" >
+                    <div #filters class="filter-icons" (click)="applyFilter(subfilter,i)" [ngClass]="{'filterApplied':subfilter.value===homeService.landingActiveTab}">
                         <span>
                             {{subfilter.id}}
                         </span>
@@ -18,5 +46,8 @@
                 </div>
             </div>
        
+    </div>
+    <div>
+        
     </div>
 </div>

@@ -4,20 +4,22 @@
     </div>
     <div class="container-section">
         <div class="filter-section">
-            <app-filter (filterApplied)="applyFilters($event)"></app-filter>
+            <app-filter (filterApplied)="applyFilters($event)" [activeTab]="activeTab"></app-filter>
         </div>
 
         <div class="result-section">
+            <ng-container *ngIf="cardData && cardData.length>0;else loaderTemplate">
                 <div *ngFor="let data of cardData" class="card-display">
                     <app-card [cardData]="data"></app-card>
                 </div>
-            <!-- <ng-template #loaderTemplate>
-                <div class="placeholder">
-                 <div class="animated-background">
-
+            </ng-container>
+                
+            <ng-template #loaderTemplate>
+                <div style="width:500px;display:flex; align-items:center;justify-content:center">
+                 <div class="cover-spin">
                  </div>
                 </div>
-            </ng-template> -->
+            </ng-template>
         </div>
     </div>
     <div class="footer">

@@ -17,6 +17,31 @@ export class FilterComponent implements OnInit{
   dateFilter=[
     {
       filterName:'launch_year',
+      value:'2006',
+      id:2006,
+    },
+    {
+      filterName:'launch_year',
+      value:'2007',
+      id:2007,
+    },
+    {
+      filterName:'launch_year',
+      value:'2008',
+      id:2008,
+    },
+    {
+      filterName:'launch_year',
+      value:'2009',
+      id:2009,
+    },
+    {
+      filterName:'launch_year',
+      value:'2010',
+      id:2010,
+    },
+    {
+      filterName:'launch_year',
       value:'2012',
       id:2012,
     },
@@ -89,6 +114,31 @@ export class FilterComponent implements OnInit{
     {
       'filterText':'Launch Year',
       'data':[
+        {
+          filterName:'launch_year',
+          value:'2006',
+          id:2006,
+        },
+        {
+          filterName:'launch_year',
+          value:'2007',
+          id:2007,
+        },
+        {
+          filterName:'launch_year',
+          value:'2008',
+          id:2008,
+        },
+        {
+          filterName:'launch_year',
+          value:'2009',
+          id:2009,
+        },
+        {
+          filterName:'launch_year',
+          value:'2010',
+          id:2010,
+        },
         {
           filterName:'launch_year',
           value:'2012',
